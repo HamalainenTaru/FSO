@@ -30,21 +30,23 @@ const Statistics = ({ good, neutral, bad }) => {
   const average = (good - bad) / all;
   const positive = (good / (good + neutral + bad)) * 100;
 
-  if (!all > 0) return null;
-
   return (
     <div>
       <h2>Statics</h2>
-      <table>
-        <tbody>
-          <StatisticLine text="Good" value={good} />
-          <StatisticLine text="Neutral" value={neutral} />
-          <StatisticLine text="Bad" value={bad} />
-          <StatisticLine text="All" value={all} />
-          <StatisticLine text="Average" value={average} />
-          <StatisticLine text="Positive" value={positive} />
-        </tbody>
-      </table>
+      {all <= 0 ? (
+        <p>No Feedback Given</p>
+      ) : (
+        <table>
+          <tbody>
+            <StatisticLine text="Good" value={good} />
+            <StatisticLine text="Neutral" value={neutral} />
+            <StatisticLine text="Bad" value={bad} />
+            <StatisticLine text="All" value={all} />
+            <StatisticLine text="Average" value={average} />
+            <StatisticLine text="Positive" value={positive} />
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
