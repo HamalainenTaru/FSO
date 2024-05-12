@@ -28,7 +28,7 @@ const Button = ({ text, action }) => {
 const Statistics = ({ good, neutral, bad }) => {
   const all = good + neutral + bad;
   const average = (good - bad) / all;
-  const positive = (good / (good + neutral + bad)) * 100;
+  const positive = (good / all) * 100;
 
   return (
     <div>
